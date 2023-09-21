@@ -18,14 +18,37 @@ const [result, setResult] = useState("");
 const ops = ['/','*','+','-','.'];
 
 const updateCalc = value => {
+    if(
+        ops.includes(value) && calc == '' || 
+        ops.includes(value) && ops.includes(calc.slice(-1))
+    ){
+        return;
+    }
     setCalc(calc + value);
+
+    if(!ops.includes(value)){
+        setResult(eval(calc+value).toString());
+    }
 } 
+
+const calulate = () =>{
+    setCalc(eval(calc).toString());
+}
+
+const delDigit = () =>{
+    if (calc == ''){
+        return;
+    }
+    const value = calc.slice(0,-1);
+    setCalc(value);
+}
+
 
     return(
         <div className='tbc'>
         <div className='calculator'>
             <div className='display'>
-                {result ? <span>(0)</span> : ''} 
+                {result ? <span>({result}) </span> : ''}
                 {calc || "0"}
             </div>
             <div className='operators'>
@@ -33,7 +56,7 @@ const updateCalc = value => {
                 <button onClick={() => updateCalc('*')}>*</button>
                 <button onClick={() => updateCalc('+')}>+</button>
                 <button onClick={() => updateCalc('-')}>-</button>
-                <button>DEL</button>
+                <button onClick={delDigit}>DEL</button>
             </div>
             <div className='digits'>
                 <button onClick={() => updateCalc('0')}>0</button>
@@ -48,7 +71,7 @@ const updateCalc = value => {
                 <button onClick={() => updateCalc('9')}>9</button>
                 <button onClick={() => updateCalc('.')}>.</button>
 
-                <button>=</button>
+                <button onClick={calulate}>=</button>
             </div>
         </div>
         </div>
