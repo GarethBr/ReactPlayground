@@ -8,6 +8,8 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LiveTvIcon from '@mui/icons-material/LiveTv';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
+import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
+import CalculateIcon from '@mui/icons-material/Calculate';
 
 export const Dashboard = () => {
     let navigate = useNavigate();
@@ -27,6 +29,16 @@ export const Dashboard = () => {
             onClick={() => navigate("/MoviePage")}
             startIcon={<LiveTvIcon
                 style={{ fontSize: "30px" }} />}>Let's Find Some Movies
+        </Button>,
+        <Button key="Form"
+            onClick={() => navigate("/FormPage")}
+            startIcon={<PsychologyAltIcon
+                style={{ fontSize: "30px" }} />} >Let's View Some Forms
+        </Button>,
+        <Button key="calc"
+            onClick={() => navigate("/RealCalc")}
+            startIcon={<CalculateIcon
+                style={{ fontSize: "30px" }} />} >Let's Calculator
         </Button>,
     ];
 

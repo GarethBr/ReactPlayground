@@ -57,7 +57,7 @@ export const MusicPage = () => {
     const [search, setSearch] = useState("")
     const [tracks, setTracks] = useState([])
     const [albumName, setAlbum] = useState([])
-    /*  Request SPotify API endpoint 
+    /*  Request Spotify API endpoint 
      *  Set object to artist variable
      */
     const searchArtists = async (e) => {

@@ -7,6 +7,9 @@ import Dashboard from "./Pages/Dashboard";
 import TweetsPage from "./Pages/TweetsPage";
 import MoviePage from "./Pages/ImdbPage";
 import MusicPage from "./Pages/MusicPage";
+import FormPage from './Pages/FormPage';
+import RealCalc from './Pages/RealCalc';
+
 
 
 /*
@@ -16,11 +19,12 @@ function App() {
   return (
     <Router>    
       <Routes>
-          <Route exact path="/" element={<Dashboard/>} />
+          <Route path="/FormPage" element= {<FormPage/>}/>
+          <Route path="/MusicPage" element={<MusicPage/>} />          
           <Route path="/TweetsPage" element ={<TweetsPage/>}/>
-          <Route path="/MoviePage" element={<MoviePage/>} /> 
-          <Route path="/MusicPage" element={<MusicPage/>} />
-          
+          <Route path="/RealCalc" element ={<RealCalc/>}/>
+          <Route exact path="/" element={<Dashboard/>} />
+          <Route path="/MoviePage" element={<MoviePage/>} />          
       </Routes>
   </Router>
   );
